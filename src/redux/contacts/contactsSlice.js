@@ -1,5 +1,4 @@
-
-import { fetchContacts, addContact, deleteContact } from './operations';
+import { addContact, deleteContact, fetchContacts } from './operations';
 
 const { createSlice, isAnyOf } = require('@reduxjs/toolkit');
 
@@ -17,9 +16,9 @@ const handleFulfilled = state => {
   state.error = null;
 };
 
-const arrThunks = [addContact, deleteContact, fetchContacts];
+const extraActions = [addContact, deleteContact, fetchContacts];
 
-const getActions = type => isAnyOf(...arrThunks.map(action => action[type]));
+const getActions = type => isAnyOf(...extraActions.map(action => action[type]));
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -48,5 +47,6 @@ const contactsSlice = createSlice({
       .addMatcher(getActions('fulfilled'), handleFulfilled);
   },
 });
+
 
 export const contactsReducer = contactsSlice.reducer;

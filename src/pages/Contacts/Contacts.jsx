@@ -5,7 +5,8 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
-import backgroundimg from 'images/backgroundimg.jpg'
+import { Container } from './Contacts.styled';
+
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -15,22 +16,17 @@ const Contacts = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <Container>
       <Helmet>
-        <title>Contacts</title>
+        <h1>Phonebook</h1>
       </Helmet>
-      <div style={{ backgroundImage: `url(${backgroundimg})` }}>
-        <div>
-          <div>
+      
             <FormContact/>
-          </div>
-          <div>
+            <h2>Contacts</h2>
             <Filter />
             <ContactsList />
-          </div>
-        </div>
-      </div>
-    </>
+       
+    </Container>
   );
 };
 

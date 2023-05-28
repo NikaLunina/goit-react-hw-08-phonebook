@@ -1,0 +1,16 @@
+.text{
+    display: flex;
+   color: #363636;
+    font-weight: bold;
+   text-align: center;
+   align-items: center;
+   line-height: 30px;
+   font-size: 30px;
+   
+  }
+  
+  .container{
+    height: 100vh;
+    background-color: gray;
+    border: 10px solid rosybrown;
+   }
